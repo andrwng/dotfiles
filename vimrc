@@ -4,13 +4,23 @@ set nocompatible
 " U S A B I L I T Y
 " ===========================
 
+" Install vim-plug if necessary
+if empty(glob('~/.vim/autoload/plug.vim'))
+  !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+" Add the plugin directory
+if empty(glob('~/.vim/plugged'))
+  !mkdir ~/.vim/plugged
+endif
+
 " Vim-Plug plugins
 call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --racer-completer' }
-Plug 'rakr/vim-one' 
 Plug 'wincent/command-t', {'do': 'cd ruby/command-t && ruby extconf.rb && make' }
+Plug 'rakr/vim-one'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " YouCompleteMe
@@ -26,7 +36,7 @@ let g:CommandTFileScanner = 'find'    " Use find command to scan
 let g:CommandTTraverseSCM = 'pwd'     " Use pwd as search root
 let g:CommandTMaxDepth = 5
 
-" Rainbow parentheses
+" Rainbow Parentheses
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -66,6 +76,10 @@ set expandtab
 set smarttab
 set autoindent
 set smartindent
+
+" Splits
+set splitbelow    " Create new splits below and to the right
+set splitright    " Feels more natural this way
 
 " ===========================
 " A E S T H E T I C S
