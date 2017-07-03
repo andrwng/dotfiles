@@ -73,7 +73,7 @@ set colorcolumn=101
 set softtabstop=2
 set tabstop=4
 set expandtab
-set smarttab
+set nosmarttab    " 'smarttab' with YMC causes an extra tab on newlines in Python
 set autoindent
 set smartindent
 
