@@ -4,19 +4,9 @@ set nocompatible
 " U S A B I L I T Y
 " ===========================
 
-" Install vim-plug if necessary
-if empty(glob('~/.vim/autoload/plug.vim'))
-  !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-" Add the plugin directory
-if empty(glob('~/.vim/plugged'))
-  !mkdir ~/.vim/plugged
-endif
-
 " Vim-Plug plugins
 call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --racer-completer' }
-Plug 'wincent/command-t', {'do': 'cd ruby/command-t && ruby extconf.rb && make' }
 Plug 'rakr/vim-one'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'christoomey/vim-tmux-navigator'
