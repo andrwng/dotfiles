@@ -28,6 +28,9 @@ do
   symlink_hidden "$config"
 done
 
+# Use the new .inputrc.
+bind -f $HOME/.inputrc
+
 # Install Vim-Plug.
 if [[ ! -e "$HOME/.vim/autoload/plug.vim" ]]; then
   curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
