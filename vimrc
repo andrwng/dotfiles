@@ -66,6 +66,7 @@ set expandtab
 set nosmarttab    " 'smarttab' with YMC causes an extra tab on newlines in Python
 set autoindent
 set smartindent
+set backspace=indent,eol,start
 
 " Splits
 set splitbelow    " Create new splits below and to the right
