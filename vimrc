@@ -10,7 +10,8 @@ Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --racer-co
 Plug 'rakr/vim-one'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'rust-lang/rust.vim'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " YouCompleteMe
