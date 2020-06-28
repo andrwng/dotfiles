@@ -22,6 +22,10 @@ let g:ycm_min_num_of_chars_for_completion = 1
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoTo<CR>
+let g:ycm_auto_trigger = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " NerdTree
 " "If you are using vim-plug, you'll also need to add these lines to avoid
