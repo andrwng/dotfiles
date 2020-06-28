@@ -12,6 +12,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 " YouCompleteMe
@@ -22,10 +23,16 @@ nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoTo<CR>
 
-" Command-T
-let g:CommandTFileScanner = 'find'    " Use find command to scan
-let g:CommandTTraverseSCM = 'pwd'     " Use pwd as search root
-let g:CommandTMaxDepth = 5
+" NerdTree
+" "If you are using vim-plug, you'll also need to add these lines to avoid
+"  crashes when calling vim-plug functions while the cursor is on the NERDTree
+"  window:"
+let g:plug_window = 'noautocmd vertical topleft new'
+" If more than one window and previous buffer was NERDTree, go back to it.
+autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+" Map ctrl+N to the toggle.
+map <C-n> :NERDTreeToggle<CR>
+
 
 " Rainbow Parentheses
 let g:rbpt_colorpairs = [
