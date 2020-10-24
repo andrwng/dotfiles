@@ -15,6 +15,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 call plug#end()
 
+" Map ctrl+G to toggle git blame.
+map <C-g> :Gblame<CR>
+
 " YouCompleteMe
 let g:ycm_confirm_extra_conf = 0                        " No confirmation toast at startup for C++
 let g:ycm_autoclose_preview_window_after_completion = 1 " No buffer popup on completion
@@ -36,7 +39,6 @@ let g:plug_window = 'noautocmd vertical topleft new'
 autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 " Map ctrl+N to the toggle.
 map <C-n> :NERDTreeToggle<CR>
-
 
 " Rainbow Parentheses
 let g:rbpt_colorpairs = [
