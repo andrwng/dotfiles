@@ -8,6 +8,7 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --racer-completer' }
 Plug 'rakr/vim-one'
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mileszs/ack.vim'
