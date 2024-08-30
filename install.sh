@@ -29,7 +29,7 @@ do
 done
 
 # Use the new .inputrc.
-bind -f $HOME/.inputrc
+# bind -f $HOME/.inputrc
 
 # Install Vim-Plug.
 if [[ ! -e "$HOME/.vim/autoload/plug.vim" ]]; then

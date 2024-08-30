@@ -6,7 +6,7 @@ set nocompatible
 
 " Vim-Plug plugins
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --racer-completer' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rakr/vim-one'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'kien/rainbow_parentheses.vim'
@@ -14,22 +14,44 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'hotwatermorning/auto-git-diff'
 call plug#end()
 
 " Map ctrl+G to toggle git blame.
-map <C-g> :Gblame<CR>
+map <C-g> :Git blame<CR>
 
-" YouCompleteMe
-let g:ycm_confirm_extra_conf = 0                        " No confirmation toast at startup for C++
-let g:ycm_autoclose_preview_window_after_completion = 1 " No buffer popup on completion
-let g:ycm_min_num_of_chars_for_completion = 1
-nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>gg :YcmCompleter GoTo<CR>
-let g:ycm_auto_trigger = 1
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
+" Map ctrl+P to run fzf find
+map <C-p> :Files<CR>
+map <C-a> :Files<CR>
+
+" Map ctrl+B to show Git commit history
+map <C-b> :Commits<CR>
+
+set hlsearch
+nnoremap <C-_> :nohlsearch<CR><C-_>
+
+" GoTo code navigation.
+let g:coc_disable_transparent_cursor = 1
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gg <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> rr <Plug>(coc-rename)
+
+" Use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
 
 " NerdTree
 " "If you are using vim-plug, you'll also need to add these lines to avoid
