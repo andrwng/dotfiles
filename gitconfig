@@ -1,0 +1,17 @@
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[user]
+	name = Andrew Wong
+[core]
+	editor = vim
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[alias]
+  ca = "!git commit --amend --no-edit"
+[alias]
+  cau = "!git add -u && git commit --amend --no-edit"
+[alias]
+  conta = "!git add -u && git rebase --continue"
+[alias]
+  rc = "!git for-each-ref --sort=-committerdate --count=20 --format=\" $(tput setaf 3)%(committerdate:relative)$(tput sgr0)\t| $(tput setaf 2)%(refname:short)$(tput sgr0)\t| %(contents:subject)\" refs/remotes/"
